@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   display: flex;
   flex-direction: column;
@@ -23,18 +27,28 @@ h3 {
   margin: 0;
 }
 
-.component-section {
-  display: flex;
-  flex-direction: column;
+.main {
+  padding: 10px;
+  .component-section {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    &__title {
+      font-size: 1.5rem; /* 24px */
+      line-height: 2rem; /* 32px */
+    }
+    &__main {
+      margin-top: 10px;
+      display: flex;
+      gap: 10px;
+    }
+  }
 }
 
 .badges {
-  display: flex;
-  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .banners {
-  display: flex;
   flex-direction: column;
-  gap: 10px;
 }
