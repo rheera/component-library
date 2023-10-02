@@ -1,4 +1,3 @@
-import BannerTitle from "./Banner";
 import "../../scss/banner.scss";
 
 export default function Banner({ type = "neutral", children }) {
@@ -10,10 +9,5 @@ export default function Banner({ type = "neutral", children }) {
       : type === "success"
       ? "green"
       : "blue";
-  return (
-    <div className={`banner ${color}`}>
-      {children}
-      {/* <div className="banner__text">Banner Text</div> */}
-    </div>
-  );
+  return <div className={`banner ${color}`}>{children}</div>;
 }
