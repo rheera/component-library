@@ -5,9 +5,9 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-weight: 500;
   border-radius: 4px;
-  max-height: 20px;
   padding: 2px 12px;
-
+  max-height: 20px;
+  width: max-content;
   &--rounded {
     border-radius: 12px;
     color: yellow;
