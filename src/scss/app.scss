@@ -21,6 +21,7 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  background-color: #dee4e7;
 }
 
 h3 {
@@ -29,6 +30,7 @@ h3 {
 
 .main {
   padding: 10px;
+  max-width: 1378px;
   .component-section {
     display: flex;
     flex-direction: column;
@@ -56,4 +58,13 @@ h3 {
 .cards {
   justify-content: center;
   margin-top: 30px !important;
+}
+
+.testimonials {
+  margin-top: 40px !important;
+  margin-bottom: 40px;
+  @media only screen and (max-width: 768px) {
+    margin-top: 130px !important;
+    margin-bottom: 0;
+  }
 }

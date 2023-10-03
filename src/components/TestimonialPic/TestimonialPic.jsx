@@ -4,6 +4,7 @@ import "../../scss/testimonial.scss";
 export default function TestimonialPic({
   pic = defaultPic,
   alt = "Testimonial Headshot",
+  children,
 }) {
   return (
     <div className="testimonial-pic">
@@ -25,17 +26,7 @@ export default function TestimonialPic({
             fillOpacity="0.25"
           />
         </svg>
-        <q className="testimonial-pic__text__quote">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed urna
-          nulla vitae laoreet augue. Amet feugiat est integer dolor auctor
-          adipiscing nunc urna, sit.
-        </q>
-        <div className="testimonial-pic__text__source">
-          <p className="testimonial-pic__text__source__author">May Andersons</p>
-          <p className="testimonial-pic__text__source__company">
-            Workcation, CTO
-          </p>
-        </div>
+        {children}
       </div>
     </div>
   );

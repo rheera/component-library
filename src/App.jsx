@@ -66,6 +66,23 @@ function App() {
       <section className="component-section">
         <h2 className="component-section__title">Testimonials</h2>
         <div className="component-section__main testimonials">
+          <TestimonialPic pic={testimonialHeadshot}>
+            <TestimonialPic.Text
+              author="May Andersons"
+              company="Workcation, CTO"
+            >
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed urna
+              nulla vitae laoreet augue. Amet feugiat est integer dolor auctor
+              adipiscing nunc urna, sit.
+            </TestimonialPic.Text>
+          </TestimonialPic>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="component-section">
+        <h2 className="component-section__title">Testimonials</h2>
+        <div className="component-section__main testimonials">
           <TestimonialPic></TestimonialPic>
         </div>
       </section>
