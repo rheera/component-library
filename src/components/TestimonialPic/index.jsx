@@ -1,6 +1,6 @@
 import TestimonialPic from "./TestimonialPic";
-import TestimonialText from "./TestimonialText";
+import TestimonialPicText from "./TestimonialPicText";
 
-TestimonialPic.Text = TestimonialText;
+TestimonialPic.Text = TestimonialPicText;
 
 export default TestimonialPic;

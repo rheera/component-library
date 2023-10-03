@@ -2,9 +2,11 @@ import Badge from "./components/Badge/index";
 import Banner from "./components/Banner/index";
 import Card from "./components/Card/index";
 import TestimonialPic from "./components/TestimonialPic/index";
+import Testimonial from "./components/Testimonial/index";
 import randomBool from "./utility/randomBool";
 import { colors, bannerTypes } from "./data/modifiers";
 import { TbCloudUpload } from "react-icons/tb";
+import { HiHomeModern } from "react-icons/hi2";
 import testimonialHeadshot from "./assets/testimonial-image.png";
 import "./scss/global.scss";
 import "./scss/app.scss";
@@ -65,7 +67,7 @@ function App() {
       {/* Testimonials */}
       <section className="component-section">
         <h2 className="component-section__title">Testimonials</h2>
-        <div className="component-section__main testimonials">
+        <div className="component-section__main testimonial-pics">
           <TestimonialPic pic={testimonialHeadshot}>
             <TestimonialPic.Text
               author="May Andersons"
@@ -83,7 +85,19 @@ function App() {
       <section className="component-section">
         <h2 className="component-section__title">Testimonials</h2>
         <div className="component-section__main testimonials">
-          <TestimonialPic></TestimonialPic>
+          <Testimonial>
+            <Testimonial.Title>
+              <HiHomeModern />
+              <h4>
+                Work<span>cation</span>
+              </h4>
+            </Testimonial.Title>
+            <Testimonial.Text author="May Andersons" company="Workcation, CTO">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo
+              expedita voluptas culpa sapiente alias molestiae. Numquam corrupti
+              in laborum sed rerum et corporis.
+            </Testimonial.Text>
+          </Testimonial>
         </div>
       </section>
     </main>

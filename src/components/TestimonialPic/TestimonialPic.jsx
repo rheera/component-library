@@ -1,5 +1,5 @@
 import defaultPic from "../../assets/testimonial-default.png";
-import "../../scss/testimonial.scss";
+import "../../scss/testimonial-pic.scss";
 
 export default function TestimonialPic({
   pic = defaultPic,

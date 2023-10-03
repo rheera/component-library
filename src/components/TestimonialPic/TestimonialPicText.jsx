@@ -1,4 +1,4 @@
-export default function TestimonialText({
+export default function TestimonialPicText({
   children,
   author = "Unknown",
   company = "",
