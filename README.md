@@ -14,9 +14,10 @@ Made with React and Vite.
 
 ## Features to add
 
-- [ ] Badge
-- [ ] Banner
-- [ ] Card
+- [x] Badge
+- [x] Banner
+- [x] Card
+  - [ ] Make Card and Banner use the same Text component and change the style depending on the parent
 - [ ] Testimonial
 - [ ] Move from local storage to a database
 

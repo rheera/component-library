@@ -1,10 +1,11 @@
 import Badge from "./components/Badge/index";
 import Banner from "./components/Banner/index";
-import Card from "./components/Card";
+import Card from "./components/Card/index";
 import randomBool from "./utility/randomBool";
 import { colors, bannerTypes } from "./data/modifiers";
 import "./scss/global.scss";
 import "./scss/app.scss";
+import { TbCloudUpload } from "react-icons/tb";
 
 function App() {
   return (
@@ -47,7 +48,15 @@ function App() {
       <section className="component-section">
         <h2 className="component-section__title">Cards</h2>
         <div className="component-section__main cards">
-          <Card />
+          <Card>
+            <Card.Icon>
+              <TbCloudUpload />
+            </Card.Icon>
+            <Card.Text title="Easy Deployment">
+              Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et
+              magna sit morbi lobortis.
+            </Card.Text>
+          </Card>
         </div>
       </section>
     </main>
