@@ -3,6 +3,8 @@ import Banner from "./components/Banner/index";
 import Card from "./components/Card/index";
 import TestimonialPic from "./components/TestimonialPic/index";
 import Testimonial from "./components/Testimonial/index";
+import Button from "./components/Button/Button";
+import Tooltip from "./components/Tooltip/Tooltip";
 import randomBool from "./utility/randomBool";
 import { colors, bannerTypes } from "./data/modifiers";
 import { TbCloudUpload } from "react-icons/tb";
@@ -100,6 +102,34 @@ function App() {
               in laborum sed rerum et corporis.
             </Testimonial.Text>
           </Testimonial>
+        </div>
+      </section>
+
+      {/* Tooltip */}
+      <section className="component-section">
+        <h2 className="component-section__title">Tooltips</h2>
+        <div className="component-section__main tooltips">
+          <Tooltip
+            type="neutral"
+            title="Click the button"
+            text="Pressing the button should open up a toast either on the bottom left or right"
+          >
+            <Button>Hover Me</Button>
+          </Tooltip>
+          {bannerTypes.map((type, index) => {
+            const Icon = type.icon;
+            return (
+              <Tooltip
+                key={`tooltip-${index}`}
+                icon={<Icon />}
+                type={type.type}
+                title="Click the button"
+                text="Pressing the button should open up a toast either on the bottom left or right"
+              >
+                <Button>Hover Me</Button>
+              </Tooltip>
+            );
+          })}
         </div>
       </section>
     </main>
