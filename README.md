@@ -19,7 +19,6 @@ Made with React and Vite.
 - [x] Card
   - [ ] Make Card and Banner use the same Text component and change the style depending on the parent
 - [ ] Testimonial
-- [ ] Move from local storage to a database
 
 ## Stretch Goals
 

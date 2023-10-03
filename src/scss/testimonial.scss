@@ -1,0 +1,45 @@
+.testimonial-pic {
+  display: flex;
+  align-items: center;
+  max-height: 400px;
+  background: #2545b8;
+  padding: 2rem;
+  gap: 1.5rem;
+  &__image {
+    img {
+      max-width: 384px;
+      border-radius: 12px;
+    }
+  }
+  &__text {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    color: #fff;
+
+    &__quote {
+      font-size: 1.5rem;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 32px; /* 133.333% */
+    }
+    &__source {
+      font-size: 1rem;
+      &__author {
+        font-weight: 700;
+      }
+      &__company {
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .testimonial-pic {
+    flex-direction: column;
+    &__image {
+    }
+  }
+}
