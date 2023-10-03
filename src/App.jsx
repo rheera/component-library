@@ -66,7 +66,9 @@ function App() {
 
       {/* Testimonials */}
       <section className="component-section">
-        <h2 className="component-section__title">Testimonials</h2>
+        <h2 className="component-section__title">
+          Testimonials - with Picture
+        </h2>
         <div className="component-section__main testimonial-pics">
           <TestimonialPic pic={testimonialHeadshot}>
             <TestimonialPic.Text

@@ -18,12 +18,13 @@ Made with React and Vite.
 - [x] Banner
 - [x] Card
   - [ ] Make Card and Banner use the same Text component and change the style depending on the parent
-- [ ] Testimonial
+- [x] Testimonial
 
 ## Stretch Goals
 
 - [ ] Tooltip
 - [ ] Toast
+- [ ] Add descriptions of each component and the different variations
 
 ## Quick start
 
