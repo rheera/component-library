@@ -26,6 +26,7 @@
     }
     &__source {
       font-size: 1rem;
+
       &__author {
         font-weight: 700;
       }
@@ -39,7 +40,23 @@
 @media only screen and (max-width: 768px) {
   .testimonial-pic {
     flex-direction: column;
+    position: relative;
+    max-height: 100%;
     &__image {
+      position: absolute;
+      top: -25%;
+      img {
+        max-height: 206px;
+        min-width: 344px;
+        object-fit: cover;
+        object-position: 50% 30%;
+      }
+    }
+    &__text {
+      margin-top: 25%;
+      &__source {
+        padding-top: 24px;
+      }
     }
   }
 }
