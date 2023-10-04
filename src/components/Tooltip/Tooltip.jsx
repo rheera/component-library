@@ -22,14 +22,14 @@ export default function Tooltip({
     setShowTooltip(false);
   }
 
-  const tooltipStyles = {
+  const toolTipStyles = {
     opacity: 1,
-    display: 1,
+    zIndex: 3,
   };
 
   return (
-    <>
-      <div className="tooltip" style={{ opacity: showTooltip ? 1 : 0 }}>
+    <div className="tooltip-cnt">
+      <div className="tooltip" style={showTooltip ? toolTipStyles : null}>
         <Banner type={type}>
           <Banner.Icon>{icon}</Banner.Icon>
           <Banner.Text title={title}>{text}</Banner.Text>
@@ -37,12 +37,12 @@ export default function Tooltip({
         <div className={`tooltip__triangle ${color}`}></div>
       </div>
       <div
-        className="tooltip-hover"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
+        className="tooltip-hover-div"
       >
         {children}
       </div>
-    </>
+    </div>
   );
 }

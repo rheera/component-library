@@ -109,13 +109,6 @@ function App() {
       <section className="component-section">
         <h2 className="component-section__title">Tooltips</h2>
         <div className="component-section__main tooltips">
-          <Tooltip
-            type="neutral"
-            title="Click the button"
-            text="Pressing the button should open up a toast either on the bottom left or right"
-          >
-            <Button>Hover Me</Button>
-          </Tooltip>
           {bannerTypes.map((type, index) => {
             const Icon = type.icon;
             return (
