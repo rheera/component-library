@@ -22,8 +22,11 @@ Made with React and Vite.
 
 ## Stretch Goals
 
-- [ ] Tooltip
+- [x] Tooltip
 - [ ] Toast
+  - [ ] Make toast fade away and stay if user hovers over it
+  - [ ] Make multiple toasts stack up
+  - [ ] Add an X button to close toasts
 - [ ] Add descriptions of each component and the different variations
 
 ## Quick start

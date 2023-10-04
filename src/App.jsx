@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import Badge from "./components/Badge/index";
 import Banner from "./components/Banner/index";
 import Card from "./components/Card/index";
@@ -5,17 +7,38 @@ import TestimonialPic from "./components/TestimonialPic/index";
 import Testimonial from "./components/Testimonial/index";
 import Button from "./components/Button/Button";
 import Tooltip from "./components/Tooltip/Tooltip";
+import Toast from "./components/Toast/Toast";
 import randomBool from "./utility/randomBool";
 import { colors, bannerTypes } from "./data/modifiers";
 import { TbCloudUpload } from "react-icons/tb";
+import { PiArrowBendRightUpBold } from "react-icons/pi";
 import { HiHomeModern } from "react-icons/hi2";
 import testimonialHeadshot from "./assets/testimonial-image.png";
 import "./scss/global.scss";
 import "./scss/app.scss";
 
 function App() {
+  const [showToast, setShowToast] = useState(false);
+  const [toastProps, setToastProps] = useState({});
+
+  useEffect(() => {
+    if (showToast) {
+      setTimeout(() => {
+        setShowToast(false);
+      }, "3200");
+    }
+  }, [showToast]);
+
+  function setToastPropsAndShow(toastPropsObj = {}) {
+    setToastProps({ ...toastPropsObj });
+    setShowToast(true);
+  }
+
   return (
     <main className="main container">
+      <h1 className="text-center mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl">
+        Component Library++
+      </h1>
       {/* Badges */}
       <section className="component-section">
         <h2 className="component-section__title">Badges</h2>
@@ -105,7 +128,7 @@ function App() {
         </div>
       </section>
 
-      {/* Tooltip */}
+      {/* Tooltips */}
       <section className="component-section">
         <h2 className="component-section__title">Tooltips</h2>
         <div className="component-section__main tooltips">
@@ -119,10 +142,31 @@ function App() {
                 title="Click the button"
                 text="Pressing the button should open up a toast either on the bottom left or right"
               >
-                <Button>Hover Me</Button>
+                <Button
+                  onClick={() =>
+                    setToastPropsAndShow({
+                      type: type.type,
+                      location: randomBool() ? "right" : "left",
+                    })
+                  }
+                >
+                  Hover Me
+                </Button>
               </Tooltip>
             );
           })}
+        </div>
+      </section>
+
+      {/* Toasts */}
+      <section className="component-section">
+        <h2 className="component-section__title">Toasts</h2>
+        <div className="component-section__main toasts">
+          <div className="toasts__text">
+            <h4>You have to click one of these buttons for this one </h4>{" "}
+            <PiArrowBendRightUpBold />
+          </div>
+          {showToast && createPortal(<Toast {...toastProps} />, document.body)}
         </div>
       </section>
     </main>
