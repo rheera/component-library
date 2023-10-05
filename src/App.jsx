@@ -1,5 +1,3 @@
-import { useState, useEffect } from "react";
-import { createPortal } from "react-dom";
 import Badge from "./components/Badge/index";
 import Banner from "./components/Banner/index";
 import Card from "./components/Card/index";
@@ -8,36 +6,21 @@ import Testimonial from "./components/Testimonial/index";
 import Button from "./components/Button/Button";
 import Tooltip from "./components/Tooltip/Tooltip";
 import Toasts from "./components/Toast/Toasts";
+import useToast from "./hooks/useToast";
 import randomBool from "./utility/randomBool";
 import { colors, bannerTypes } from "./data/modifiers";
 import { TbCloudUpload } from "react-icons/tb";
-import { PiArrowBendRightUpBold } from "react-icons/pi";
+import {
+  PiArrowBendRightUpBold,
+  PiArrowBendRightDownBold,
+} from "react-icons/pi";
 import { HiHomeModern } from "react-icons/hi2";
 import testimonialHeadshot from "./assets/testimonial-image.png";
 import "./scss/global.scss";
 import "./scss/app.scss";
 
 function App() {
-  const [toasts, setToasts] = useState([]);
-
-  const addToast = (toastProps) => {
-    setToasts((prevToasts) => [
-      ...prevToasts,
-      { ...toastProps, id: new Date().getUTCMilliseconds() },
-    ]);
-  };
-
-  const removeToast = (index) => {
-    setToasts((prevToasts) => prevToasts.filter((_, i) => i !== index));
-  };
-
-  useEffect(() => {
-    if (toasts.length > 0) {
-      setTimeout(() => {
-        setToasts((prevToasts) => prevToasts.slice(1));
-      }, "3200");
-    }
-  }, [toasts]);
+  const [toasts, addToast, removeToast] = useToast();
 
   return (
     <main className="main container">
@@ -137,7 +120,10 @@ function App() {
       <section className="component-section">
         <h2 className="component-section__title">Tooltips</h2>
         <div className="tooltips__info">
-          You have to hover over one of these buttons for this one
+          <div className="info-text ">
+            <h4>I should show up here, hover over the buttons</h4>{" "}
+            <PiArrowBendRightDownBold className="down-arrow" />
+          </div>
         </div>
         <div className="component-section__main tooltips">
           {bannerTypes.map((type, index) => {
@@ -155,6 +141,7 @@ function App() {
                     addToast({
                       type: type.type,
                       location: randomBool() ? "right" : "left",
+                      icon: <Icon />,
                     })
                   }
                 >
@@ -170,7 +157,7 @@ function App() {
       <section className="component-section">
         <h2 className="component-section__title">Toasts</h2>
         <div className="component-section__main toasts">
-          <div className="toasts__text">
+          <div className="info-text">
             <h4>You have to click one of these buttons for this one </h4>{" "}
             <PiArrowBendRightUpBold />
           </div>
