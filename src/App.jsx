@@ -124,6 +124,7 @@ function App() {
             <h4>I should show up here, hover over the buttons</h4>{" "}
             <PiArrowBendRightDownBold className="down-arrow" />
           </div>
+          <div className="tooltips__info__box" id="outside"></div>
         </div>
         <div className="component-section__main tooltips">
           {bannerTypes.map((type, index) => {
