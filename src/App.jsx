@@ -7,7 +7,7 @@ import TestimonialPic from "./components/TestimonialPic/index";
 import Testimonial from "./components/Testimonial/index";
 import Button from "./components/Button/Button";
 import Tooltip from "./components/Tooltip/Tooltip";
-import Toast from "./components/Toast/Toast";
+import Toasts from "./components/Toast/Toasts";
 import randomBool from "./utility/randomBool";
 import { colors, bannerTypes } from "./data/modifiers";
 import { TbCloudUpload } from "react-icons/tb";
@@ -18,21 +18,26 @@ import "./scss/global.scss";
 import "./scss/app.scss";
 
 function App() {
-  const [showToast, setShowToast] = useState(false);
-  const [toastProps, setToastProps] = useState({});
+  const [toasts, setToasts] = useState([]);
+
+  const addToast = (toastProps) => {
+    setToasts((prevToasts) => [
+      ...prevToasts,
+      { ...toastProps, id: new Date().getUTCMilliseconds() },
+    ]);
+  };
+
+  const removeToast = (index) => {
+    setToasts((prevToasts) => prevToasts.filter((_, i) => i !== index));
+  };
 
   useEffect(() => {
-    if (showToast) {
+    if (toasts.length > 0) {
       setTimeout(() => {
-        setShowToast(false);
+        setToasts((prevToasts) => prevToasts.slice(1));
       }, "3200");
     }
-  }, [showToast]);
-
-  function setToastPropsAndShow(toastPropsObj = {}) {
-    setToastProps({ ...toastPropsObj });
-    setShowToast(true);
-  }
+  }, [toasts]);
 
   return (
     <main className="main container">
@@ -131,6 +136,9 @@ function App() {
       {/* Tooltips */}
       <section className="component-section">
         <h2 className="component-section__title">Tooltips</h2>
+        <div className="tooltips__info">
+          You have to hover over one of these buttons for this one
+        </div>
         <div className="component-section__main tooltips">
           {bannerTypes.map((type, index) => {
             const Icon = type.icon;
@@ -140,11 +148,11 @@ function App() {
                 icon={<Icon />}
                 type={type.type}
                 title="Click the button"
-                text="Pressing the button should open up a toast either on the bottom left or right"
+                text="Pressing the button should open up a toast on the bottom right for about 3 seconds"
               >
                 <Button
                   onClick={() =>
-                    setToastPropsAndShow({
+                    addToast({
                       type: type.type,
                       location: randomBool() ? "right" : "left",
                     })
@@ -166,7 +174,7 @@ function App() {
             <h4>You have to click one of these buttons for this one </h4>{" "}
             <PiArrowBendRightUpBold />
           </div>
-          {showToast && createPortal(<Toast {...toastProps} />, document.body)}
+          <Toasts toasts={toasts} removeToast={removeToast} />
         </div>
       </section>
     </main>
