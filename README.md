@@ -1,6 +1,6 @@
-# Markdown Notes App
+# Component Library
 
-Part of Scrimba's Advanced React course. A collection of different Reusable Components. Goal is to practice compound components, useContext, custom hooks, and Render Props.
+Part of Scrimba's Advanced React course. A collection of different Reusable Components. Goal is to practice compound components, useContext, custom hooks, and Render Props. Live link here: https://ramans-component-library.netlify.app/
 
 ## Table of Contents
 
@@ -23,10 +23,10 @@ Made with React and Vite.
 ## Stretch Goals
 
 - [x] Tooltip
-- [ ] Toast
+- [x] Toast
+  - [x] Make multiple toasts stack up
+  - [x] Add an X button to close toasts
   - [ ] Make toast fade away and stay if user hovers over it
-  - [ ] Make multiple toasts stack up
-  - [ ] Add an X button to close toasts
 - [ ] Add descriptions of each component and the different variations
 
 ## Quick start
